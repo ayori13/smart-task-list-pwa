@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Умный список задач</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#6d28d9" />
+    <link rel="icon" href="icons/icon-192.png" />
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background: #f5f3ff;
+        margin: 0;
+        padding: 1.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        color: #3b0764;
+      }
+      h1 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+        color: #5b21b6;
+      }
+      input[type="text"] {
+        padding: 0.6rem 0.8rem;
+        width: 100%;
+        font-size: 1rem;
+        border: 1px solid #ddd6fe;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+        box-sizing: border-box;
+        background: #faf5ff;
+        color: #4c1d95;
+      }
+      .button {
+        padding: 0.5rem 1rem;
+        background: #7c3aed;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-size: 0.9rem;
+        margin: 0.25rem 0.5rem 0.25rem 0;
+        transition: background 0.2s ease;
+      }
+      .button:hover {
+        background: #6d28d9;
+      }
+      .task {
+        list-style: none;
+        background: white;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        margin-bottom: 0.5rem;
+        border: 1px solid #e9d5ff;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+      .task:hover {
+        background: #f3e8ff;
+      }
+      .done {
+        text-decoration: line-through;
+        color: #a78bfa;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel" src="src/App.jsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('service-worker.js')
+            .then(reg => console.log('SW registered:', reg))
+            .catch(err => console.error('SW registration failed:', err));
+        });
+      }
+    </script>
+  </body>
+</html>
